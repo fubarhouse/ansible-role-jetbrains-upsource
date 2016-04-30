@@ -5,11 +5,11 @@
 
   option_install_postgres: true
 
-  option install_nginx: true
+  option_install_nginx: true
 
-  option install_java: true
+  option_install_java: true
 
-  teamcty_install_dir: opt/teamcity
+  teamcity_install_dir: opt/teamcity
   teamcity_version: 9.1.6
   teamcity_domain: teamcity.vagrant.dev
 

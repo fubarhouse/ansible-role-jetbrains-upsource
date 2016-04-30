@@ -1,48 +1,50 @@
 ---
   - name: Teamcity | create application user
-    user: name=teamcity comment="Teamcity CI" group=teamcity
+    user: name=teamcity comment="Teamcity CI"
     become: yes
     tags:
       - teamcity
 
   - name: Teamcity |  Create installation directories
-    file: path="{{item}}" state=present owner="teamcity"
+    file: path="{{item}}" state=directory owner="teamcity"
     become: yes
     with_items:
-      - "{{teamcty_install_dir}}"
-      - "{{teamcty_install_dir}}/.BuildServer/lib/jdbc"
-      - "{{teamcty_install_dir}}/.BuildServer/config"
+      - "{{teamcity_install_dir}}"
+      - "{{teamcity_install_dir}}/.BuildServer/lib/jdbc"
+      - "{{teamcity_install_dir}}/.BuildServer/config"
     tags:
       - teamcity
 
   - name: Teamcity |  Get distribution
-    get_url: url=https://download.jetbrains.com/teamcity/TeamCity-{{teamcity_version}}.tar.gz dest=/tmp/TeamCity-{{teamcity_version}}.tar.gz
+    get_url: url="https://download.jetbrains.com/teamcity/TeamCity-{{teamcity_version}}.tar.gz" dest="/tmp/TeamCity-{{teamcity_version}}.tar.gz" validate_certs=no
+    become: yes
+    become_user: teamcity
     tags:
       - teamcity
 
   - name: Teamcity |  Unpack distribution
-    unarchive: src=/tmp/TeamCity-{{teamcity_version}}.tar.gz dest="{{teamcty_install_dir}}"
+    unarchive: src="/tmp/TeamCity-{{teamcity_version}}.tar.gz" dest="{{teamcity_install_dir}}"
     become: yes
     become_user: teamcity
     tags:
       - teamcity
 
   - name: Teamcity |  Get postgress jdbc driver
-    get_url: url="http://jdbc.postgresql.org/download/postgresql-9.3-1101.jdbc41.jar" dest="{{teamcty_install_dir}}/.BuildServer/lib/jdbc/postgresql-9.3-1101.jdbc41.jar"
+    get_url: url="http://jdbc.postgresql.org/download/postgresql-9.3-1101.jdbc41.jar" dest="{{teamcity_install_dir}}/.BuildServer/lib/jdbc/postgresql-9.3-1101.jdbc41.jar"
     become: yes
     become_user: teamcity
     tags:
       - teamcity
 
   - name: Teamcity |  Template database connection config
-    template: src="{{role_dir}}/templates/postgres.database.properties.j2" dest="{{teamcty_install_dir}}/.BuildServer/config/database.properties"
+    template: src="{{role_dir}}/templates/postgres.database.properties.j2" dest="{{teamcity_install_dir}}/.BuildServer/config/database.properties"
     become: yes
     become_user: teamcity
     tags:
       - teamcity
 
   - name: Teamcity |  Template upstart
-    template: src="{{role_dir}}/templates/upstart.j2" dest="{{teamcty_install_dir}}/.BuildServer/config/database.properties"
+    template: src="{{role_dir}}/templates/upstart.j2" dest="{{teamcity_install_dir}}/.BuildServer/config/database.properties"
     become: yes
     tags:
       - teamcity
