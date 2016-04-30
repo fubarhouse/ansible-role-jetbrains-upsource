@@ -1,0 +1,14 @@
+---
+# tasks file for sa-teamcity
+
+  - include: tasks_java.yml
+    when: option_install_java
+
+  - include: option_postgres.yml
+    when: option_install_postgres
+    tags:
+      - teamcity
+      - postgres
+ 
+ - include: task_nginx.yml
+   when: option_install_nginx
