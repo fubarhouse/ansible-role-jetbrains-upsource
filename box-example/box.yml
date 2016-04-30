@@ -2,16 +2,16 @@
 - hosts: www
 
   vars:
-    - root_dir: ..
+    - root_dir: "{{playbook_dir}}/../"
 
 
   pre_tasks:
     - debug: msg="Pre tasks section"
 
   roles:
-     - {
-         role: "sa-teamcity"
-       }
+    - {
+        role: "sa-teamcity"
+      }
 
 
   tasks:
