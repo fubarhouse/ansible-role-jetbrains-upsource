@@ -53,7 +53,7 @@
       - teamcity
 
   - name: Teamcity |  Template upstart
-    template: src="{{role_dir}}/templates/upstart/teamcity.j2" dest="/etc/init.d/teamcity.conf"
+    template: src="{{role_dir}}/templates/upstart/teamcity.j2" dest="/etc/init.d/teamcity" mode="755"
     become: yes
     tags:
       - teamcity
