@@ -9,6 +9,7 @@
     - debug: msg="Pre tasks section"
 
   roles:
+
     - {
         role: "sa-teamcity"
       }

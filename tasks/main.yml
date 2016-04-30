@@ -7,5 +7,5 @@
   - include: option_postgres.yml
     when: option_install_postgres
  
-  - include: task_nginx.yml
+  - include: tasks_nginx.yml
     when: option_install_nginx
