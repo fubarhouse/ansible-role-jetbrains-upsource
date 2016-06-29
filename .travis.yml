@@ -20,6 +20,7 @@ install:
 
 script:
   # Basic role syntax check
+  - sudo apt-get install python-psycopg2
   - cd tests
   - ansible-playbook ./test.yml -i inventory --syntax-check
   - ansible-playbook -i inventory ./test.yml --sudo -vvvv
