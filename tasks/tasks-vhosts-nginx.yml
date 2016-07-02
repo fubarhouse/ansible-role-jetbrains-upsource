@@ -1,0 +1,21 @@
+---
+
+- name: "TeamCity | Virtual host | NGINX | Make available"
+  become: yes
+  become_user: root
+  template:
+    src: "../templates/vhosts/nginx.conf"
+    dest: "/etc/nginx/sites-available/teamcity.conf"
+    owner: root
+    group: root
+    mode: 0777
+
+- name: "TeamCity | Virtual host | NGINX | Make enabled"
+  become: yes
+  become_user: root
+  template:
+    src: "../templates/vhosts/nginx.conf"
+    dest: "/etc/nginx/sites-enabled/teamcity.conf"
+    owner: root
+    group: root
+    mode: 0777

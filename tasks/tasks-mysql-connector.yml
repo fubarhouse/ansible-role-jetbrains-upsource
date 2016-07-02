@@ -1,0 +1,36 @@
+---
+
+- name: "MySQL | Connector | Get distribution"
+  get_url:
+    url: "http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.39.tar.gz"
+    dest: "/tmp/mysql-connector-java-5.1.39.tar.gz"
+    validate_certs: no
+  tags:
+    - teamcity
+
+- name: "MySQL | Connector | Unpack distribution"
+  become: yes
+  become_user: root
+  unarchive:
+    src: "/tmp/mysql-connector-java-5.1.39.tar.gz"
+    dest: "/var/teamcity/buildserver/lib/jdbc"
+    copy: "no"
+  tags:
+    - teamcity
+
+- name: "MySQL | Connector |  Copy distribution"
+  become: yes
+  become_user: root
+  copy:
+    src: /var/teamcity/buildserver/lib/jdbc/mysql-connector-java-5.1.39/mysql-connector-java-5.1.39-bin.jar
+    dest: /var/teamcity/buildserver/lib/jdbc/mysql-connector-java-5.1.39-bin.jar
+    owner: teamcity
+    group: teamcity
+    mode: 0775
+
+- name: "MySQL | Connector |  Remove distribution"
+  become: yes
+  become_user: root
+  file:
+    path: "/var/teamcity/buildserver/lib/jdbc/mysql-connector-java-5.1.39/"
+    state: absent

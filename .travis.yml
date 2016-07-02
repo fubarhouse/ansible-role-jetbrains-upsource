@@ -19,9 +19,8 @@ install:
   - printf '[defaults]\nroles_path=../' >ansible.cfg
 
 script:
-  # Basic role syntax check
-  - sudo apt-get install python-psycopg2
   - cd tests
+  - git clone https://github.com/geerlingguy/ansible-role-java.git ../roles/geerlingguy.java
   - ansible-playbook ./test.yml -i inventory --syntax-check
   - ansible-playbook -i inventory ./test.yml --sudo -vvvv
 

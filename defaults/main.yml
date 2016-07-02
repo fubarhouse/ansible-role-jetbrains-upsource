@@ -3,7 +3,7 @@
 
   role_dir: "{{role_path}}"
 
-  option_install_postgres: true
+  option_install_postgres: false
 
   option_install_nginx: true
 
@@ -42,3 +42,10 @@
   db_name: teamcity
 
 #/ POSTGRES SECTION
+
+
+# Java
+
+  java_repo: ppa:webupd8team/java
+  java_packages:
+    - openjdk-7-jdk

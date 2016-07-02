@@ -1,13 +1,25 @@
 ---
-# tasks file for sa-teamcity
 
-  - include: tasks_java.yml
-    when: option_install_java
+- name: "Include setup tasks"
+  include: tasks-initial.yml
 
-  - include: option_postgres.yml
-    when: option_install_postgres
- 
-  - include: tasks_nginx.yml
-    when: option_install_nginx
+- name: "Include config tasks"
+  include: tasks-config.yml
 
-  - include: tasks_teamcity.yml
+- name: "Include teamcity distribution tasks"
+  include: tasks-teamcity-distribution.yml
+
+- name: "Include teamcity service tasks"
+  include: tasks-teamcity-service.yml
+
+- name: "Include mysql connector tasks"
+  include: tasks-mysql-connector.yml
+
+- name: "Include mysql db tasks"
+  include: tasks-mysql-db.yml
+
+- name: "Include vhosts apache2 tasks"
+  include: tasks-vhosts-apache2.yml
+
+- name: "Include vhosts nginx tasks"
+  include: tasks-vhosts-nginx.yml

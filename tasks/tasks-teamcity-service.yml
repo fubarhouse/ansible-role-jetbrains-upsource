@@ -1,0 +1,13 @@
+---
+
+- name: "TeamCity | Service | Stop"
+  become: yes
+  become_user: root
+  shell: /opt/teamcity/TeamCity/bin/teamcity-server.sh stop
+
+- name: "TeamCity | Service | Start"
+  become: yes
+  become_user: root
+  shell: /opt/teamcity/TeamCity/bin/teamcity-server.sh start
+  register: teamcity_status
+  failed_when: '"Tomcat started." not in "{{ teamcity_status.stdout }}"'

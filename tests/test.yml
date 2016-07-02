@@ -1,5 +1,27 @@
 ---
+
+# ---
+# Role created from instruction set found on https://boinst.wordpress.com/2014/04/30/install-and-update-teamcity-on-ubuntu/
+# ---
+#
+# @TODO Upgrade/Uninstall paths
+# @TODO Build Agent (found in link above)
+# @TODO Apache2 support
+# @TODO Maybe support other databases / probably not
+# @TODO Run travis remotely
+#
+
 - hosts: localhost
-  remote_user: root
+
+  vars_files:
+    - ../defaults/main.yml
+  pre_tasks:
+    - include: ../tasks/tasks-initial.yml
   roles:
-    - ./../../sa-teamcity
+    - role: ../roles/geerlingguy.java/
+      become: yes
+      become_user: root
+      when: "ansible_os_family == 'Debian'"
+  tasks:
+    - include: "../tasks/main.yml"
+

@@ -1,0 +1,19 @@
+---
+
+- name: "Teamcity | Get distribution"
+  get_url:
+    url: "http://download.jetbrains.com/teamcity/TeamCity-9.1.7.tar.gz"
+    dest: "/tmp/TeamCity-9-1-7.tar.gz"
+    validate_certs: no
+  tags:
+    - teamcity
+
+- name: "Teamcity | Unpack distribution"
+  become: yes
+  become_user: root
+  unarchive:
+    src: "/tmp/TeamCity-9-1-7.tar.gz"
+    dest: "/opt/teamcity"
+    copy: "no"
+  tags:
+    - teamcity

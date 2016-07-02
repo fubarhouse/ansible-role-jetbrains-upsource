@@ -1,4 +1,0 @@
-[submodule "roles/sa-teamcity"]
-        path = roles/sa-teamcity
-        url = https://github.com/softasap/sa-teamcity.git
-

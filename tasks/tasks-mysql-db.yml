@@ -1,0 +1,17 @@
+---
+
+- name: "MySQL | Database | Create"
+  become: yes
+  become_user: root
+  mysql_db:
+    name: teamcity
+    state: present
+
+- name: "MySQL | Database | Create user"
+  become: yes
+  become_user: root
+  mysql_user:
+    name: teamcity
+    password: 12345
+    priv: '*.*:ALL'
+    state:  present
