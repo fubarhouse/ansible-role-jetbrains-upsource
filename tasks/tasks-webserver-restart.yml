@@ -1,0 +1,8 @@
+---
+
+- name: "Webserver | Restart"
+  become: yes
+  become_user: root
+  service:
+    name: "{{ teamcity_webserver }}"
+    state: restarted

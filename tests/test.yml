@@ -7,8 +7,6 @@
 # @TODO Upgrade/Uninstall paths
 # @TODO Build Agent (found in link above)
 # @TODO Apache2 support
-# @TODO Maybe support other databases / probably not
-# @TODO Run travis remotely
 #
 
 - hosts: localhost
@@ -22,6 +20,4 @@
       become: yes
       become_user: root
       when: "ansible_os_family == 'Debian'"
-  tasks:
-    - include: "../tasks/main.yml"
-
+    - role: ../../sa-teamcity/

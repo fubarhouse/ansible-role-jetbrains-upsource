@@ -1,0 +1,12 @@
+---
+
+- name: "Teamcity | Uninstall"
+  become: yes
+  become_user: root
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - "/var/teamcity/TeamCity"
+    - "/var/teamcity/buildserver/lib/jdbc/"
+  when: '"{{ teamcity_installed_version.stdout }}" != "{{ teamcity_version }}"'

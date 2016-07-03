@@ -1,0 +1,19 @@
+---
+
+- name: "Setup | Install Webserver"
+  become: yes
+  become_user: root
+  apt:
+    name: "{{ teamcity_webserver }}"
+    state: installed
+  when: '"{{ teamcity_webserver }}" is defined and "{{ teamcity_webserver }}" == "nginx" or "{{ teamcity_webserver }}" == "apache2"'
+
+- name: "Setup | Scanning for Apache2"
+  stat:
+    path: /usr/sbin/apache2
+  register: apache2_is_installed
+
+- name: "Setup | Scanning for NGINX"
+  stat:
+    path: /usr/sbin/nginx
+  register: nginx_is_installed

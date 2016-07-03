@@ -3,6 +3,16 @@
 - name: "Include setup tasks"
   include: tasks-initial.yml
 
+- name: "Include webserver installation tasks"
+  include: tasks-webserver-install.yml
+
+- name: "Include detection tasks"
+  include: tasks-teamcity-detect.yml
+
+- name: "Include clean-up tasks"
+  include: tasks-teamcity-clean.yml
+  when: '"{{ teamcity_installed_version.stdout }}" != "{{ teamcity_version }}"'
+
 - name: "Include config tasks"
   include: tasks-config.yml
 
@@ -20,6 +30,11 @@
 
 - name: "Include vhosts apache2 tasks"
   include: tasks-vhosts-apache2.yml
+  when: apache2_is_installed is defined
 
 - name: "Include vhosts nginx tasks"
   include: tasks-vhosts-nginx.yml
+  when: nginx_is_installed is defined
+
+- name: "Include webserver restart tasks"
+  include: tasks-webserver-restart.yml
