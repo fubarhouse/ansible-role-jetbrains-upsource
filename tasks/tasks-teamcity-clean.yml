@@ -1,5 +1,10 @@
 ---
 
+- name: "TeamCity | Stop service"
+  become: yes
+  become_user: root
+  shell: /opt/teamcity/TeamCity/bin/teamcity-server.sh stop
+
 - name: "Teamcity | Uninstall"
   become: yes
   become_user: root
