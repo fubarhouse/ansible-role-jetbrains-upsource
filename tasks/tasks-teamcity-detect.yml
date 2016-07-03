@@ -3,12 +3,9 @@
 - name: "Teamcity | Get version"
   shell: 'curl localhost:8111 | grep TeamCity | grep build | cut -d " " -f10'
   register: teamcity_installed_version
+  ignore_errors: yes
 
 - name: "Teamcity | Debug"
   debug:
     msg: "{{ teamcity_installed_version.stdout }}"
   when: '"{{ teamcity_installed_version.stdout }}" != "{{ teamcity_version }}"'
-
-- name: 'xxx'
-  command: ""
-  command: ""
