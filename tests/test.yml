@@ -4,10 +4,6 @@
 # Role created from instruction set found on https://boinst.wordpress.com/2014/04/30/install-and-update-teamcity-on-ubuntu/
 # ---
 #
-# @TODO Upgrade/Uninstall paths
-# @TODO Build Agent (found in link above)
-# @TODO Apache2 support
-#
 
 - hosts: localhost
 
@@ -20,4 +16,4 @@
       become: yes
       become_user: root
       when: "ansible_os_family == 'Debian'"
-    - role: ../../sa-teamcity/
+    - role: ../../fubarhouse.teamcity/
