@@ -9,7 +9,8 @@
 
 ## Preview
 
-[logo]: https://github.com/fubarhouse/fubarhouse.teamcity/raw/feature-travis/images/login-screen.png "TeamCity login screen, installed with this role."
+[screenshot]: https://raw.githubusercontent.com/fubarhouse/fubarhouse.teamcity/feature-travis/images/login-screen.png "TeamCity login screen, installed with this role."
+
 
 ## Requirements
 
