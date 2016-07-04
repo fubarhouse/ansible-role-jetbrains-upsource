@@ -8,7 +8,7 @@
 * Installs Jetbrains' TeamCity on Ubuntu servers
 
 ## Preview
-![screenshot](https://raw.githubusercontent.com/fubarhouse/fubarhouse.teamcity/feature-travis/images/login-screen.png)
+![screenshot](https://raw.githubusercontent.com/fubarhouse/fubarhouse.teamcity/master/images/login-screen.png)
 
 ## Requirements
 
