@@ -8,9 +8,7 @@
 * Installs Jetbrains' TeamCity on Ubuntu servers
 
 ## Preview
-
-[screenshot]: https://raw.githubusercontent.com/fubarhouse/fubarhouse.teamcity/feature-travis/images/login-screen.png "TeamCity login screen, installed with this role."
-
+![screenshot](https://raw.githubusercontent.com/fubarhouse/fubarhouse.teamcity/feature-travis/images/login-screen.png)
 
 ## Requirements
 
