@@ -19,10 +19,8 @@ install:
   - printf '[defaults]\nroles_path=../' >ansible.cfg
 
 script:
-  - sudo chmod 777 /etc/ansible/roles
-  - sudo chown $USER /etc/ansible/roles
   - cd tests
-  - ansible-galaxy install -r requirements.yml
+  - sudo ansible-galaxy install -r requirements.yml
   - ansible-playbook ./test.yml -i inventory --syntax-check
   - ansible-playbook -i inventory ./test.yml --sudo -vvvv
 
