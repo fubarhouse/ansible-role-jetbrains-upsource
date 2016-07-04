@@ -20,7 +20,7 @@ install:
 
 script:
   - cd tests
-  - git clone https://github.com/geerlingguy/ansible-role-java.git ../roles/geerlingguy.java
+  - ansible-galaxy install -r requirements.yml
   - ansible-playbook ./test.yml -i inventory --syntax-check
   - ansible-playbook -i inventory ./test.yml --sudo -vvvv
 
