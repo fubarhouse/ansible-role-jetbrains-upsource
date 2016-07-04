@@ -1,10 +1,10 @@
 ---
 
+- name: "Teamcity | Detect installation"
+  stat:
+    path: "/opt/teamcity/TeamCity/webapps/ROOT/WEB-INF/buildServerConfigurator.xml"
+  register: config_file
+
 - name: "Teamcity | Get version"
   shell: 'curl localhost:8111 | grep TeamCity | grep build | cut -d " " -f10'
   register: teamcity_installed_version
-
-- name: "Teamcity | Debug"
-  debug:
-    msg: "{{ teamcity_installed_version.stdout }}"
-  when: '"{{ teamcity_installed_version.stdout }}" != "{{ teamcity_version }}"'

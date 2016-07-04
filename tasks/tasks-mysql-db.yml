@@ -11,7 +11,7 @@
   become: yes
   become_user: root
   mysql_user:
-    name: teamcity
-    password: 12345
+    name: "{{ teamcity_db_user }}"
+    password: "{{ teamcity_db_user }}"
     priv: '*.*:ALL'
     state:  present

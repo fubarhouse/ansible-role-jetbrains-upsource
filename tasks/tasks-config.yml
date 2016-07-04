@@ -5,8 +5,8 @@
   become_user: root
   lineinfile:
     dest: /etc/environment
-    regexp: 'TEAMCITY_DATA_PATH=/var/teamcity/buildserver'
-    line: 'TEAMCITY_DATA_PATH=/var/teamcity/buildserver'
+    regexp: 'TEAMCITY_DATA_PATH="{{ teamcity_data_dir }}/buildserver"'
+    line: 'TEAMCITY_DATA_PATH="{{ teamcity_data_dir }}/buildserver"'
 
 - name: "Config | Create user group"
   become: yes
@@ -35,10 +35,10 @@
     mode: 0777
     recurse: true
   with_items:
-    - "/var/teamcity"
-    - "/var/teamcity/buildserver"
-    - "/var/teamcity/buildserver/lib"
-    - "/var/teamcity/buildserver/lib/jdbc"
+    - "{{ teamcity_data_dir }}"
+    - "{{ teamcity_data_dir }}/buildserver"
+    - "{{ teamcity_data_dir }}/buildserver/lib"
+    - "{{ teamcity_data_dir }}/buildserver/lib/jdbc"
     - "/opt/teamcity"
     - "/opt/teamcity/TeamCity"
     - "/opt/teamcity/TeamCity/webapps"

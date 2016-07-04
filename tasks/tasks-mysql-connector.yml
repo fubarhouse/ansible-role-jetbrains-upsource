@@ -13,7 +13,7 @@
   become_user: root
   unarchive:
     src: "/tmp/mysql-connector-java-{{ connector_version }}.tar.gz"
-    dest: "/var/teamcity/buildserver/lib/jdbc"
+    dest: "{{ teamcity_data_dir }}/buildserver/lib/jdbc"
     copy: "no"
   tags:
     - teamcity
@@ -22,8 +22,8 @@
   become: yes
   become_user: root
   copy:
-    src: "/var/teamcity/buildserver/lib/jdbc/mysql-connector-java-{{ connector_version }}/mysql-connector-java-{{ connector_version }}-bin.jar"
-    dest: "/var/teamcity/buildserver/lib/jdbc/mysql-connector-java-{{ connector_version }}-bin.jar"
+    src: "{{ teamcity_data_dir }}/buildserver/lib/jdbc/mysql-connector-java-{{ connector_version }}/mysql-connector-java-{{ connector_version }}-bin.jar"
+    dest: "{{ teamcity_data_dir }}/buildserver/lib/jdbc/mysql-connector-java-{{ connector_version }}-bin.jar"
     owner: teamcity
     group: teamcity
     mode: 0775
@@ -32,5 +32,5 @@
   become: yes
   become_user: root
   file:
-    path: "/var/teamcity/buildserver/lib/jdbc/mysql-connector-java-{{ connector_version }}/"
+    path: "{{ teamcity_data_dir }}/buildserver/lib/jdbc/mysql-connector-java-{{ connector_version }}/"
     state: absent
