@@ -12,7 +12,6 @@
 
 ## Requirements
 
-  The following requirements are installed with the role.
   * [geerlingguy.java](https://github.com/geerlingguy/ansible-role-java)
 
 ## Role Variables
