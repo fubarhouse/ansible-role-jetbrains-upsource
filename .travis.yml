@@ -20,7 +20,7 @@ install:
 
 script:
   - cd tests
-  - sudo ansible-galaxy install -r requirements.yml
+  - sudo ansible-galaxy install geerlingguy.java
   - ansible-playbook ./test.yml -i inventory --syntax-check
   - ansible-playbook -i inventory ./test.yml --sudo -vvvv
 
