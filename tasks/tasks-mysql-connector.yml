@@ -1,0 +1,36 @@
+---
+
+- name: "MySQL | Connector | Get distribution"
+  get_url:
+    url: "http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-{{ connector_version }}.tar.gz"
+    dest: "/tmp/mysql-connector-java-{{ connector_version }}.tar.gz"
+    validate_certs: no
+  tags:
+    - teamcity
+
+- name: "MySQL | Connector | Unpack distribution"
+  become: yes
+  become_user: root
+  unarchive:
+    src: "/tmp/mysql-connector-java-{{ connector_version }}.tar.gz"
+    dest: "{{ teamcity_data_dir }}/buildserver/lib/jdbc"
+    copy: "no"
+  tags:
+    - teamcity
+
+- name: "MySQL | Connector |  Copy distribution"
+  become: yes
+  become_user: root
+  copy:
+    src: "{{ teamcity_data_dir }}/buildserver/lib/jdbc/mysql-connector-java-{{ connector_version }}/mysql-connector-java-{{ connector_version }}-bin.jar"
+    dest: "{{ teamcity_data_dir }}/buildserver/lib/jdbc/mysql-connector-java-{{ connector_version }}-bin.jar"
+    owner: teamcity
+    group: teamcity
+    mode: 0775
+
+- name: "MySQL | Connector |  Remove distribution"
+  become: yes
+  become_user: root
+  file:
+    path: "{{ teamcity_data_dir }}/buildserver/lib/jdbc/mysql-connector-java-{{ connector_version }}/"
+    state: absent

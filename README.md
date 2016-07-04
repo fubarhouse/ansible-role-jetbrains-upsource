@@ -1,69 +1,43 @@
-SA-TEAMCITY
-===========
+# Ansible Role: TeamCity
 
-[![Build Status](https://travis-ci.org/softasap/sa-teamcity.svg?branch=master)](https://travis-ci.org/softasap/sa-teamcity)
+[![Build Status](https://travis-ci.org/fubarhouse/fubarhouse.teamcity.svg?branch=master)](https://travis-ci.org/fubarhouse/fubarhouse.teamcity)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/fubarhouse/fubarhouse.teamcity/master/LICENSE)
 
-Example of use:
+* Installs Java v7 on Ubuntu servers
+* Installs MySQL on Ubuntu servers
+* Installs Jetbrains' TeamCity on Ubuntu servers
 
-- hosts: www
+## Preview
+![screenshot](https://raw.githubusercontent.com/fubarhouse/fubarhouse.teamcity/master/images/login-screen.png)
 
-  vars:
-    - root_dir: "{{playbook_dir}}/../"
+## Requirements
 
+  * [geerlingguy.java](https://github.com/geerlingguy/ansible-role-java)
 
-  pre_tasks:
-    - debug: msg="Pre tasks section"
+## Role Variables
 
-  roles:
+    teamcity_domain: teamcity.vagrant.dev
+    teamcity_version: 9.1.7
+    teamcity_webserver: nginx
+    teamcity_db_user: teamcity
+    teamcity_db_user: 12345
 
-    - {
-        role: "sa-teamcity"
-      }
+## Dependencies
 
+  Dependencies are checked off as the role installs.
 
-  tasks:
-    - debug: msg="Tasks section"
+## Installation
 
+  * Add the role to your playbook.
+  * Modify above variables as desired.
 
+## License
 
-Possible overrides:
+MIT / BSD
 
-  option_install_postgres: true
+## Author Information
 
-  option_install_nginx: true
+This role was created in 2016 by [Karl Hepworth](https://twitter.com/fubarhouse).
 
-  option_install_java: true
-
-  teamcity_install_dir: /opt/teamcity
-  teamcity_version: 9.1.6
-  teamcity_domain: teamcity.vagrant.dev
-
-# JAVA SECTION
-
-  java_version: 7
-
-# / JAVA SECTION
-
-# POSTGRES SECTION
-  option_create_app_user: true
-
-  postgresql_version: 9.3
-
-  postgresql_listen_addresses: localhost  # * for any address
-
-  postgresql_port: 5432
-
-  # Set remotely to allow listening
-  #postgres_app_network: "192.168.0.1/32"
-  #postgres_app_network_regex: "192\.168\.0\.1\/32"
-
-  # Set remotely to allow listening
-  #postgres_dev_network: "192.168.0.1/32"
-
-  db_host: localhost
-  db_user: teamcity
-  db_password: BDa29Ia3BAROci66DQ99
-  db_name: teamcity
-
-#/ POSTGRES SECTION
+This role was created due to having unavailable options of success. It was created because I failed to get the galaxy role [sa-teamcity](https://github.com/softasap/sa-teamcity) to work correctly or test correctly. I hope it helps others.
 
