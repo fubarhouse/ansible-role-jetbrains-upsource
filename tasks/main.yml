@@ -11,7 +11,7 @@
 
 - name: "Include clean-up tasks"
   include: tasks-upsource-clean.yml
-  when: '"{{ config_file.stat.exists }}" == "true"'
+  when: '"{{ config_file.stat.exists }}" == "true" and "{{ upsource_version }}" not in "{{ upsource_installed_version.stdout_lines }}"'
 
 - name: "Include config tasks"
   include: tasks-config.yml

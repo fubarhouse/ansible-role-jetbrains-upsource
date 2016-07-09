@@ -5,6 +5,6 @@
     path: "{{ upsource_install_dir }}/upsource.sh"
   register: config_file
 
-#- name: "UpSource | Get version"
-#  shell: 'curl localhost:8111 | grep UpSource | grep build | cut -d " " -f10'
-#  register: teamcity_installed_version
+- name: "UpSource | Get version"
+  shell: "curl localhost:8080 | grep Version | cut -d '\"' -f4 | cat"
+  register: upsource_installed_version
