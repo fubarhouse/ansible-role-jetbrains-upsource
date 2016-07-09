@@ -1,10 +1,20 @@
 ---
 
-- name: "UpSource | Stop service"
+- name: "UpSource | Service | Get status"
   become: yes
   become_user: root
-  shell: '"{{ upsource_install_dir }}/upsource.sh" stop'
-  when: '"{{ config_file.stat.exists }}" == "true"'
+  shell: "{{ upsource_install_dir }}/bin/upsource.sh status | cat"
+  register: upsource_service_status
+  tags:
+    - upsource
+
+- name: "UpSource | Service | Stop"
+  become: yes
+  become_user: root
+  shell: "{{ upsource_install_dir }}/bin/upsource.sh stop"
+  tags:
+    - upsource
+  when: '"Upsource is shut down" not in "{{ upsource_service_status.stdout }}"'
 
 - name: "UpSource | Uninstall"
   become: yes
