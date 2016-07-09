@@ -1,61 +1,14 @@
 ---
 
-- name: "Config | Set environment"
-  become: yes
-  become_user: root
-  lineinfile:
-    dest: /etc/environment
-    regexp: 'TEAMCITY_DATA_PATH="{{ teamcity_data_dir }}/buildserver"'
-    line: 'TEAMCITY_DATA_PATH="{{ teamcity_data_dir }}/buildserver"'
-
-- name: "Config | Create user group"
-  become: yes
-  become_user: root
-  group:
-    name: teamcity
-    state: present
-
-- name: "Config | Add users"
-  become: yes
-  become_user: root
-  user:
-    name: teamcity
-    shell: /bin/false
-    state: present
-    group: teamcity
-
 - name: "Config | Create directories"
   become: yes
   become_user: root
   file:
     path: "{{ item }}"
     state: directory
-    owner: teamcity
-    group: teamcity
+    owner: root
+    group: root
     mode: 0777
     recurse: true
   with_items:
-    - "{{ teamcity_data_dir }}"
-    - "{{ teamcity_data_dir }}/buildserver"
-    - "{{ teamcity_data_dir }}/buildserver/lib"
-    - "{{ teamcity_data_dir }}/buildserver/lib/jdbc"
-    - "/opt/teamcity"
-    - "/opt/teamcity/TeamCity"
-    - "/opt/teamcity/TeamCity/webapps"
-    - "/opt/teamcity/TeamCity/webapps/ROOT"
-    - "/opt/teamcity/TeamCity/webapps/ROOT/WEB-INF"
-
-- name: "Config | Copy initialization script"
-  become: yes
-  become_user: root
-  template:
-    src: ../templates/initialization/script.sh
-    dest: /etc/init.d/teamcity
-    owner: root
-    group: root
-    mode: 0755
-
-- name: "Config | Install intialization script"
-  become: yes
-  become_user: root
-  shell: update-rc.d teamcity defaults
+    - "{{ upsource_install_dir }}"

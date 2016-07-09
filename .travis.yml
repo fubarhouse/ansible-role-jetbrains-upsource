@@ -19,7 +19,7 @@ install:
   - printf '[defaults]\nroles_path=../' >ansible.cfg
 
 script:
-  - git clone https://github.com/geerlingguy/ansible-role-java.git /home/travis/build/fubarhouse/fubarhouse.teamcity/tests/roles/geerlingguy.java
+  - git clone https://github.com/geerlingguy/ansible-role-java.git /home/travis/build/fubarhouse/fubarhouse.upsource/tests/roles/geerlingguy.java
   - cd tests
   - ansible-playbook ./test.yml -i inventory --syntax-check
   - ansible-playbook -i inventory ./test.yml --sudo -vvvv

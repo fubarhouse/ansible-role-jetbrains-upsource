@@ -14,10 +14,4 @@
     name: "{{ item }}"
     state: installed
   with_items:
-    - mysql-server
-    - libapache2-mod-php5
-    - php5
-    - php5-mcrypt
-    - phpmyadmin
-    - mcrypt
-    - python-mysqldb
+    - unzip

@@ -1,0 +1,16 @@
+---
+
+- name: "UpSource | Stop service"
+  become: yes
+  become_user: root
+  shell: '"{{ upsource_install_dir }}/upsource.sh" stop'
+  when: '"{{ config_file.stat.exists }}" == "true"'
+
+- name: "UpSource | Uninstall"
+  become: yes
+  become_user: root
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - "{{ upsource_install_dir }}"

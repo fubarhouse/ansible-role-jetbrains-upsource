@@ -1,0 +1,29 @@
+---
+
+- name: "UpSource | Get distribution"
+  get_url:
+    url: "http://download.jetbrains.com/upsource/upsource-{{ upsource_version }}.zip"
+    dest: "/tmp/upsource-{{ upsource_version }}.zip"
+    validate_certs: no
+  tags:
+    - upsource
+
+- name: "UpSource | Unpack distribution"
+  become: yes
+  become_user: root
+  unarchive:
+    src: "/tmp/upsource-{{ upsource_version }}.zip"
+    dest: "{{ upsource_install_dir }}"
+    copy: "no"
+  tags:
+    - upsource
+
+- name: "UpSource | Move distribution"
+  become: yes
+  become_user: root
+  shell: "sudo rsync -a {{ upsource_install_dir }}/upsource-{{ upsource_version }}/* {{ upsource_install_dir }}"
+
+- name: "UpSource | Remove superseded folder"
+  become: yes
+  become_user: root
+  shell: "sudo rm -rf {{ upsource_install_dir }}/upsource-{{ upsource_version }}"

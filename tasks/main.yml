@@ -7,34 +7,28 @@
   include: tasks-webserver-install.yml
 
 - name: "Include detection tasks"
-  include: tasks-teamcity-detect.yml
+  include: tasks-upsource-detect.yml
 
 - name: "Include clean-up tasks"
-  include: tasks-teamcity-clean.yml
-  when: '"{{ teamcity_installed_version.stdout }}" != "{{ teamcity_version }}" and "{{ config_file.stat.exists }}" == "true"'
+  include: tasks-upsource-clean.yml
+  when: '"{{ config_file.stat.exists }}" == "true"'
 
 - name: "Include config tasks"
   include: tasks-config.yml
 
-- name: "Include teamcity distribution tasks"
-  include: tasks-teamcity-distribution.yml
+- name: "Include upsource distribution tasks"
+  include: tasks-upsource-distribution.yml
 
-- name: "Include teamcity service tasks"
-  include: tasks-teamcity-service.yml
-
-- name: "Include mysql connector tasks"
-  include: tasks-mysql-connector.yml
-
-- name: "Include mysql db tasks"
-  include: tasks-mysql-db.yml
+- name: "Include upsource service tasks"
+  include: tasks-upsource-service.yml
 
 - name: "Include vhosts apache2 tasks"
   include: tasks-vhosts-apache2.yml
-  when: apache2_is_installed is defined
+  when: '"{{ upsource_webserver }}" == "apache2" and "{{ apache2_is_installed.stat.exists }}"'
 
 - name: "Include vhosts nginx tasks"
   include: tasks-vhosts-nginx.yml
-  when: nginx_is_installed is defined
+  when: '"{{ upsource_webserver }}" == "nginx" and "{{ nginx_is_installed.stat.exists }}"'
 
 - name: "Include webserver restart tasks"
   include: tasks-webserver-restart.yml
