@@ -1,7 +1,7 @@
 # Ansible Role: UpSource
 
-[![Build Status](https://travis-ci.org/fubarhouse/fubarhouse.upsource.svg?branch=master)](https://travis-ci.org/fubarhouse/fubarhouse.teamcity)
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/fubarhouse/fubarhouse.teamcity/master/LICENSE)
+[![Build Status](https://travis-ci.org/fubarhouse/fubarhouse.upsource.svg?branch=master)](https://travis-ci.org/fubarhouse/fubarhouse.upsource)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/fubarhouse/fubarhouse.upsource/master/LICENSE)
 
 * Installs Java v7 on Ubuntu servers
 * Installs Jetbrains' UpSource on Ubuntu servers
