@@ -22,4 +22,3 @@
   shell: "{{ upsource_install_dir }}/bin/upsource.sh start"
   tags:
     - upsource
-  when: '"Upsource is shut down" in "{{ upsource_service_status.stdout }}"'
