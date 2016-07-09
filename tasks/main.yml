@@ -24,11 +24,11 @@
 
 - name: "Include vhosts apache2 tasks"
   include: tasks-vhosts-apache2.yml
-  when: '"{{ apache2_is_installed.stat.exists }}"'
+  when: '"{{ upsource_webserver }}" == "apache2" and "{{ apache2_is_installed.stat.exists }}"'
 
 - name: "Include vhosts nginx tasks"
   include: tasks-vhosts-nginx.yml
-  when: '"{{ nginx_is_installed.stat.exists }}"'
+  when: '"{{ upsource_webserver }}" == "nginx" and "{{ nginx_is_installed.stat.exists }}"'
 
 - name: "Include webserver restart tasks"
   include: tasks-webserver-restart.yml
