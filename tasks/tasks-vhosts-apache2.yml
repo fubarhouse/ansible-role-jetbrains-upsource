@@ -1,21 +1,21 @@
 ---
 
-- name: "TeamCity | Virtual host | Apache2 | Make available"
+- name: "UpSource | Virtual host | Apache2 | Make available"
   become: yes
   become_user: root
   template:
     src: "../templates/vhosts/apache2.conf"
-    dest: "/etc/apache2/sites-available/teamcity.conf"
+    dest: "/etc/apache2/sites-available/upsource.conf"
     owner: root
     group: root
     mode: 0777
 
-- name: "TeamCity | Virtual host | Apache2 | Make enabled"
+- name: "UpSource | Virtual host | Apache2 | Make enabled"
   become: yes
   become_user: root
   template:
     src: "../templates/vhosts/apache2.conf"
-    dest: "/etc/apache2/sites-enabled/teamcity.conf"
+    dest: "/etc/apache2/sites-enabled/upsource.conf"
     owner: root
     group: root
     mode: 0777

@@ -1,0 +1,10 @@
+---
+
+- name: "UpSource | Detect installation"
+  stat:
+    path: "{{ upsource_install_dir }}/upsource.sh"
+  register: config_file
+
+#- name: "UpSource | Get version"
+#  shell: 'curl localhost:8111 | grep UpSource | grep build | cut -d " " -f10'
+#  register: teamcity_installed_version

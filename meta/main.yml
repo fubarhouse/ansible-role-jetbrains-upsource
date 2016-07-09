@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Karl Hepworth
-  description: Installs teamcity, continious integration server from Jetbrains
+  description: Installs JetBrains UpSource on Ubuntu servers.
   license: MIT
   min_ansible_version: 2.0.0
   platforms:
@@ -10,9 +10,7 @@ galaxy_info:
         - trusty
   galaxy_tags:
     - jetbrains
-    - build server
-    - teamcity
-    - continious integration
+    - upsource
     - ubuntu
   platforms:
   - name: Ubuntu

@@ -1,10 +1,5 @@
 ---
 
-# ---
-# Role created from instruction set found on https://boinst.wordpress.com/2014/04/30/install-and-update-teamcity-on-ubuntu/
-# ---
-#
-
 - hosts: localhost
   roles:
-    - role: ../../fubarhouse.teamcity/
+    - role: ../../fubarhouse.upsource/

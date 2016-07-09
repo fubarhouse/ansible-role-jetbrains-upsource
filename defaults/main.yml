@@ -1,20 +1,10 @@
 ---
-# defaults file for sa-teamcity
+# defaults file for sa-upsource
 
-# General config - Unless you use your own configurations or have
-# forked this role, changing paths will break the role.
+  upsource_install_dir: /opt/upsource
+  upsource_domain: upsource.vagrant.dev
 
-  teamcity_install_dir: /opt/teamcity
-  teamcity_data_dir: /var/teamcity
-  teamcity_domain: teamcity.vagrant.dev
+# upsource
 
-# Teamcity
-
-  teamcity_version: 9.1.7
-  teamcity_webserver: nginx
-  teamcity_db_user: teamcity
-  teamcity_db_user: 12345
-
-# MySQL Connector
-
-  connector_version: 5.1.39
+  upsource_version: 3.0.4389
+  upsource_webserver: nginx

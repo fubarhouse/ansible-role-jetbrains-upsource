@@ -4,5 +4,5 @@
   become: yes
   become_user: root
   service:
-    name: "{{ teamcity_webserver }}"
+    name: "{{ upsource_webserver }}"
     state: restarted
