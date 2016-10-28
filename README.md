@@ -16,7 +16,7 @@
 ## Role Variables
 
     upsource_domain: upsource.vagrant.dev
-    upsource_version: 3.0.4389
+    upsource_version: 3.0.4423
     upsource_webserver: nginx
 
 ## Dependencies
