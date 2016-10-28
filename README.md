@@ -1,13 +1,13 @@
 # Ansible Role: UpSource
 
-[![Build Status](https://travis-ci.org/fubarhouse/fubarhouse.upsource.svg?branch=master)](https://travis-ci.org/fubarhouse/fubarhouse.upsource)
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/fubarhouse/fubarhouse.upsource/master/LICENSE)
+[![Build Status](https://travis-ci.org/fubarhouse/ansible-role-upsource.svg?branch=master)](https://travis-ci.org/fubarhouse/ansible-role-upsource)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/fubarhouse/ansible-role-upsource/master/LICENSE)
 
 * Installs Java v7 on Ubuntu servers
 * Installs Jetbrains' UpSource on Ubuntu servers
 
 ## Preview
-![screenshot](https://raw.githubusercontent.com/fubarhouse/fubarhouse.upsource/master/images/login-screen.png)
+![screenshot](https://raw.githubusercontent.com/fubarhouse/ansible-role-upsource/master/images/login-screen.png)
 
 ## Requirements
 
