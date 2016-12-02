@@ -3,9 +3,6 @@
 - name: "Include setup tasks"
   include: tasks-initial.yml
 
-- name: "Include webserver installation tasks"
-  include: tasks-webserver-install.yml
-
 - name: "Include detection tasks"
   include: tasks-upsource-detect.yml
 
@@ -21,14 +18,3 @@
 
 - name: "Include upsource service tasks"
   include: tasks-upsource-service.yml
-
-- name: "Include vhosts apache2 tasks"
-  include: tasks-vhosts-apache2.yml
-  when: '"{{ upsource_webserver }}" == "apache2" and "{{ apache2_is_installed.stat.exists }}"'
-
-- name: "Include vhosts nginx tasks"
-  include: tasks-vhosts-nginx.yml
-  when: '"{{ upsource_webserver }}" == "nginx" and "{{ nginx_is_installed.stat.exists }}"'
-
-- name: "Include webserver restart tasks"
-  include: tasks-webserver-restart.yml

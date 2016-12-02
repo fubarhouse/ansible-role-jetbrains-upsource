@@ -1,5 +1,9 @@
 ---
 
-- hosts: localhost
+- hosts: all
+  sudo: true
   roles:
-    - role: ../../ansible-role-upsource/
+    - geerlingguy.git
+    - fubarhouse.commons
+    - fubarhouse.curl
+    - role_under_test

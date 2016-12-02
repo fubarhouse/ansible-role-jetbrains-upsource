@@ -1,10 +1,16 @@
 ---
-# defaults file for sa-upsource
+# defaults file for fubarhouse.upsource
 
-  upsource_install_dir: /opt/upsource
-  upsource_domain: upsource.vagrant.dev
+upsource_install_dir: /opt/upsource
+upsource_domain: upsource.vagrant.dev
 
 # upsource
 
-  upsource_version: 3.0.4423
-  upsource_webserver: nginx
+upsource_version: 3.5.3597
+fubarhouse_webserver: nginx
+
+fubarhouse_vhosts:
+  - name: upsource
+    domain: "{{ upsource_domain }}"
+    docroot: /opt/upsource
+    port: 8080

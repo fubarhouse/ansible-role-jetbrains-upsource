@@ -4,10 +4,6 @@ galaxy_info:
   description: Installs JetBrains UpSource on Ubuntu servers.
   license: MIT
   min_ansible_version: 2.0.0
-  platforms:
-    - name: Ubuntu
-      versions:
-        - trusty
   galaxy_tags:
     - jetbrains
     - upsource

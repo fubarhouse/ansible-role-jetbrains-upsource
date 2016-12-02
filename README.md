@@ -17,7 +17,7 @@
 
     upsource_domain: upsource.vagrant.dev
     upsource_version: 3.0.4423
-    upsource_webserver: nginx
+    fubarhouse_webserver: nginx
 
 ## Dependencies
 

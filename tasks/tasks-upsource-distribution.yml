@@ -21,9 +21,26 @@
 - name: "UpSource | Move distribution"
   become: yes
   become_user: root
-  shell: "sudo rsync -a {{ upsource_install_dir }}/upsource-{{ upsource_version }}/* {{ upsource_install_dir }}"
+  synchronize:
+    src: "{{ upsource_install_dir }}/upsource-{{ upsource_version }}/"
+    dest: "{{ upsource_install_dir }}/"
+    recursive: yes
+    delete: yes
+
+- name: "UpSource | Ensure directory is writable"
+  become: yes
+  become_user: root
+  file:
+    path: "{{ upsource_install_dir }}"
+    state: directory
+    owner: "{{ fubarhouse_user }}"
+    group: "{{ fubarhouse_user }}"
+    mode: 0755
+    recurse: true
 
 - name: "UpSource | Remove superseded folder"
   become: yes
   become_user: root
-  shell: "sudo rm -rf {{ upsource_install_dir }}/upsource-{{ upsource_version }}"
+  file:
+    path: "{{ upsource_install_dir }}/upsource-{{ upsource_version }}"
+    state: absent

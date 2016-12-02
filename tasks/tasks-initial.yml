@@ -6,12 +6,15 @@
   apt:
     update_cache: yes
     cache_valid_time: 86400
+  ignore_errors: true
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: "Setup | Install Dependencies"
   become: yes
   become_user: root
-  apt:
+  package:
     name: "{{ item }}"
     state: installed
   with_items:
+    - rsync
     - unzip
