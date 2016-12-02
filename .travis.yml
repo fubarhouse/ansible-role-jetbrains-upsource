@@ -33,6 +33,7 @@ script:
   - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible-galaxy install geerlingguy.git'
   - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible-galaxy install fubarhouse.commons'
   - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible-galaxy install fubarhouse.curl'
+  - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible-galaxy install geerlingguy.java'
   - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible-galaxy install geerlingguy.apache'
   - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible-galaxy install geerlingguy.nginx'
 
