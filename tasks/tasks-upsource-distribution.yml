@@ -18,6 +18,12 @@
   tags:
     - upsource
 
+- name: "UpSource | Moving to installation directory"
+  become: yes
+  become_user: root
+  shell: "cp -rf {{ upsource_install_dir }}/upsource-{{ upsource_version }}/* {{ upsource_install_dir }}"
+  when: ansible_ssh_user is defined
+
 - name: "UpSource | Move distribution"
   become: yes
   become_user: root
@@ -26,6 +32,7 @@
     dest: "{{ upsource_install_dir }}/"
     recursive: yes
     delete: yes
+  when: ansible_ssh_user is undefined
 
 - name: "UpSource | Ensure directory is writable"
   become: yes
