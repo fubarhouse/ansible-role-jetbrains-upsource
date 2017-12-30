@@ -37,6 +37,7 @@ env:
     init: /sbin/init
     run_opts: --privileged
     playbook: playbook.yml
+    python: 2.7
   - docker_user: fubarhouse
     distro: ubuntu1504
     init: /sbin/init
