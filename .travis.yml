@@ -38,7 +38,7 @@ env:
     run_opts: --privileged
     playbook: playbook.yml
     python: 2.7
-    env: PYBIN=/home/travis/virtualenv/python2.7.12/bin/python2.7
+    env: PYBIN=/home/travis/virtualenv/python2.7.14/bin/python2.7
   - docker_user: fubarhouse
     distro: ubuntu1504
     init: /sbin/init
