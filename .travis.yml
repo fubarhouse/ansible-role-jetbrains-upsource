@@ -7,7 +7,7 @@ services: docker
 
 env:
 
-  - docker_user: fubarhouse
+  - docker_user: geerlingguy
     distro: ubuntu1204
     init: /sbin/init
     run_opts: --privileged
