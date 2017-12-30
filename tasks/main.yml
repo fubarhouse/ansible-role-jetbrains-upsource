@@ -12,9 +12,12 @@
 
 - name: "Include config tasks"
   include: tasks-config.yml
+  when: 'upsource_version not in upsource_installed_version.stdout_lines'
 
 - name: "Include upsource distribution tasks"
   include: tasks-upsource-distribution.yml
+  when: 'upsource_version not in upsource_installed_version.stdout_lines'
 
 - name: "Include upsource service tasks"
   include: tasks-upsource-service.yml
+  when: 'upsource_version not in upsource_installed_version.stdout_lines'
