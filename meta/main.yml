@@ -32,6 +32,4 @@ galaxy_info:
   - development
   - system
   - web
-dependencies:
-  - fubarhouse.commons
-  - geerlingguy.java
+dependencies: []
