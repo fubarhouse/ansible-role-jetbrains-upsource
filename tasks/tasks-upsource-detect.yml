@@ -16,3 +16,4 @@
   shell: "cat {{ upsource_install_dir }}/VERSION.txt"
   register: upsource_installed_version
   changed_when: false
+  failed_when: false
