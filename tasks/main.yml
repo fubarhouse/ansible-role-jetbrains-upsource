@@ -10,16 +10,16 @@
   include: tasks-upsource-clean.yml
   when:
     - 'config_file.stat.exists|bool == true'
-    - 'upsource_version not in upsource_installed_version.stdout_lines'
+    - 'upsource_version in upsource_installed_version.stdout_lines'
 
 - name: "Include config tasks"
   include: tasks-config.yml
-  when: 'upsource_version in upsource_installed_version.stdout_lines'
+  when: 'upsource_version not in upsource_installed_version.stdout_lines'
 
 - name: "Include upsource distribution tasks"
   include: tasks-upsource-distribution.yml
-  when: 'upsource_version in upsource_installed_version.stdout_lines'
+  when: 'upsource_version not in upsource_installed_version.stdout_lines'
 
 - name: "Include upsource service tasks"
   include: tasks-upsource-service.yml
-  when: 'upsource_version in upsource_installed_version.stdout_lines'
+  when: 'upsource_version not in upsource_installed_version.stdout_lines'
