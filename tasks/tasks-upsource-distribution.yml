@@ -55,4 +55,4 @@
 - name: "Upsource | Configure to run on desired port"
   become: yes
   become_user: root
-  shell: "{{ upsource_install_dir }}/bin/upsource.sh configure --listen-port {{ upsource_port }} --base-url http://servername:{{ upsource_port }}/"
+  shell: "{{ upsource_install_dir }}/bin/upsource.sh configure --listen-port {{ upsource_port }} --base-url http://{{ upsource_domain }}:{{ upsource_port }}/"

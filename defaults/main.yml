@@ -2,5 +2,6 @@
 # defaults file for fubarhouse.upsource
 
 upsource_install_dir: /opt/upsource
+upsource_domain: localhost
 upsource_port: 3000
 upsource_version: 3.5.3597
