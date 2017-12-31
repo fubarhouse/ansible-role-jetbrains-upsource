@@ -9,27 +9,39 @@ galaxy_info:
     - upsource
     - ubuntu
   platforms:
-  - name: Ubuntu
-    versions:
-    - all
-    - lucid
-    - maverick
-    - natty
-    - oneiric
-    - precise
-    - quantal
-    - raring
-    - saucy
-    - trusty
-    - utopic
-    - vivid
-    - wily
-  - name: Debian
-    versions:
-    - all
+    - name: Debian
+      versions:
+        - wheezy
+        - jessie
+        - stretch
+    - name: EL
+      versions:
+        - 6
+        - 7
+    - name: Fedora
+      versions:
+        - 24
+        - 25
+        - 26
+    - name: Ubuntu
+      versions:
+        - artful
+        - zesty
+        - yakkety
+        - xenial
+        - vivid
+        - wily
+        - utopic
+        - trusty
+        - saucy
+        - raring
+        - quantal
+        - precise
   categories:
   - database
   - development
   - system
   - web
-dependencies: []
+dependencies:
+  - fubarhouse.commons
+  - geerlingguy.java
