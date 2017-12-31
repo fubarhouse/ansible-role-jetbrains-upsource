@@ -6,26 +6,32 @@
 - name: "Include detection tasks"
   include: tasks-upsource-detect.yml
 
-- name: "Include clean-up tasks"
-  include: tasks-upsource-clean.yml
-  when:
-    - 'config_file.stat.exists|bool == true'
-    - 'upsource_version in upsource_installed_version.stdout_lines'
+#- name: "Include clean-up tasks"
+#  include: tasks-upsource-clean.yml
+#  when:
+#    - 'config_file.stat.exists|bool == true'
+#    - 'upsource_version in upsource_installed_version.stdout'
+#  when: >
+#    ('config_file.stat.exists|bool == true') and
+#    ('upsource_version in upsource_installed_version.stdout') and
 
 - name: "Include config tasks"
   include: tasks-config.yml
   when:
     - 'config_file.stat.exists|bool == false'
-    - 'upsource_version not in upsource_installed_version.stdout_lines'
+    - 'upsource_version not in upsource_installed_version.stdout'
+    - '"Upsource is running" not in upsource_service_status'
 
 - name: "Include upsource distribution tasks"
   include: tasks-upsource-distribution.yml
   when:
     - 'config_file.stat.exists|bool == false'
-    - 'upsource_version not in upsource_installed_version.stdout_lines'
+    - 'upsource_version not in upsource_installed_version.stdout'
+    - '"Upsource is running" not in upsource_service_status'
 
 - name: "Include upsource service tasks"
   include: tasks-upsource-service.yml
   when:
     - 'config_file.stat.exists|bool == false'
-    - 'upsource_version not in upsource_installed_version.stdout_lines'
+    - 'upsource_version not in upsource_installed_version.stdout'
+    - '"Upsource is running" not in upsource_service_status'

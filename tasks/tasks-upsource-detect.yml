@@ -2,11 +2,17 @@
 
 - name: "UpSource | Detect installation"
   stat:
-    path: "{{ upsource_install_dir }}/upsource.sh"
+    path: "{{ upsource_install_dir }}/bin/upsource.sh"
   register: config_file
   changed_when: false
 
+- name: "UpSource | Check service status"
+  shell: "{{ upsource_install_dir }}/bin/upsource.sh status"
+  register: upsource_service_status
+  changed_when: false
+  failed_when: false
+
 - name: "UpSource | Get version"
-  shell: "curl localhost:{{ upsource_port }} | grep Version | cut -d '\"' -f4 | cat"
+  shell: "cat {{ upsource_install_dir }}/VERSION.txt"
   register: upsource_installed_version
   changed_when: false
