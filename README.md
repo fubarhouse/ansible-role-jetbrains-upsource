@@ -15,9 +15,7 @@
 
 ## Role Variables
 
-    upsource_domain: upsource.vagrant.dev
     upsource_version: 3.0.4423
-    fubarhouse_webserver: nginx
 
 ## Dependencies
 
