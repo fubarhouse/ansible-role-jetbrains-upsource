@@ -20,12 +20,7 @@
       failed_when: false
       when: ansible_os_family == 'Debian'
 
-    - name: Create travis user
-      user:
-        name: "{{ fubarhouse_user }}"
-      failed_when: false
-      changed_when: false
-    - name: "Setup | Install Dependencies"
+    - name: Install Dependencies
       package:
         name: "{{ item }}"
         state: installed
