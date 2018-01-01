@@ -6,19 +6,37 @@
     fubarhouse_user: travis
     fubarhouse_user_dir: /home/travis
   pre_tasks:
-  - name: Create travis user
-    user:
-      name: "{{ fubarhouse_user }}"
-    failed_when: false
-    changed_when: false
-  - name: "Setup | Install Dependencies"
-    package:
-      name: "{{ item }}"
-      state: installed
-    with_items:
-      - rsync
-      - unzip
-    failed_when: false
-    changed_when: false
+
+    - name: Update yum cache.
+      yum:
+        update_cache: yes
+        state: latest
+      changed_when: false
+      failed_when: false
+      when: ansible_os_family == 'RedHat'
+
+    - name: Update apt cache.
+      apt:
+        update_cache: yes
+        cache_valid_time: 600
+      changed_when: false
+      failed_when: false
+      when: ansible_os_family == 'Debian'
+
+    - name: Create travis user
+      user:
+        name: "{{ fubarhouse_user }}"
+      failed_when: false
+      changed_when: false
+    - name: "Setup | Install Dependencies"
+      package:
+        name: "{{ item }}"
+        state: installed
+      with_items:
+        - rsync
+        - unzip
+      failed_when: false
+      changed_when: false
+
   roles:
     - role_under_test
