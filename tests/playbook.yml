@@ -11,5 +11,14 @@
       name: "{{ fubarhouse_user }}"
     failed_when: false
     changed_when: false
+  - name: "Setup | Install Dependencies"
+    package:
+      name: "{{ item }}"
+      state: installed
+    with_items:
+      - rsync
+      - unzip
+    failed_when: false
+    changed_when: false
   roles:
     - role_under_test

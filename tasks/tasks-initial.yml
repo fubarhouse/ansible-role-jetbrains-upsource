@@ -1,9 +1,0 @@
----
-
-- name: "Setup | Install Dependencies"
-  package:
-    name: "{{ item }}"
-    state: installed
-  with_items:
-    - rsync
-    - unzip

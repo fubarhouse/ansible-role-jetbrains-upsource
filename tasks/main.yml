@@ -1,8 +1,5 @@
 ---
 
-- name: "Include setup tasks"
-  include: tasks-initial.yml
-
 - name: "Include detection tasks"
   include: tasks-upsource-detect.yml
 
