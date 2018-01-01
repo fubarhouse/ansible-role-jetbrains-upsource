@@ -5,4 +5,4 @@ upsource_fresh_install: false
 upsource_install_dir: /opt/upsource
 upsource_domain: localhost
 upsource_port: 3000
-upsource_version: 3.5.3597
+upsource_version: 2017.3.2593

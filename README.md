@@ -24,7 +24,7 @@
     # Installation port
     upsource_port: 3000
     # Installation version
-    upsource_version: 3.5.3597
+    upsource_version: 2017.3.2593
 
 ## Dependencies
 
