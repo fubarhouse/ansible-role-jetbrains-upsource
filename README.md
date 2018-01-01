@@ -15,9 +15,15 @@
 
 ## Role Variables
 
+    # Remove the existing file system before starting
+    upsource_fresh_install: false
+    # Installation directory
     upsource_install_dir: /opt/upsource
+    # Installation domain
     upsource_domain: localhost
+    # Installation port
     upsource_port: 3000
+    # Installation version
     upsource_version: 3.5.3597
 
 ## Dependencies
