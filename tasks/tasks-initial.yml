@@ -1,8 +1,6 @@
 ---
 
 - name: "Setup | Install Dependencies"
-  become: yes
-  become_user: root
   package:
     name: "{{ item }}"
     state: installed

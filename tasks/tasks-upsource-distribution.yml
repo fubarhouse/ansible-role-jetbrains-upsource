@@ -9,8 +9,6 @@
     - upsource
 
 - name: "UpSource | Unpack distribution"
-  become: yes
-  become_user: root
   unarchive:
     src: "/tmp/upsource-{{ upsource_version }}.zip"
     dest: "{{ upsource_install_dir }}"
@@ -19,14 +17,10 @@
     - upsource
 
 - name: "UpSource | Moving to installation directory"
-  become: yes
-  become_user: root
   shell: "cp -rf {{ upsource_install_dir }}/upsource-{{ upsource_version }}/* {{ upsource_install_dir }}"
   when: ansible_ssh_user is defined
 
 - name: "UpSource | Move distribution"
-  become: yes
-  become_user: root
   synchronize:
     src: "{{ upsource_install_dir }}/upsource-{{ upsource_version }}/"
     dest: "{{ upsource_install_dir }}/"
@@ -35,8 +29,6 @@
   when: ansible_ssh_user is undefined
 
 - name: "UpSource | Ensure directory is writable"
-  become: yes
-  become_user: root
   file:
     path: "{{ upsource_install_dir }}"
     state: directory
@@ -46,13 +38,9 @@
     recurse: true
 
 - name: "UpSource | Remove superseded folder"
-  become: yes
-  become_user: root
   file:
     path: "{{ upsource_install_dir }}/upsource-{{ upsource_version }}"
     state: absent
 
 - name: "Upsource | Configure to run on desired port"
-  become: yes
-  become_user: root
   shell: "{{ upsource_install_dir }}/bin/upsource.sh configure --listen-port {{ upsource_port }} --base-url http://{{ upsource_domain }}:{{ upsource_port }}/"

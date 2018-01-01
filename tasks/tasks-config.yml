@@ -1,8 +1,6 @@
 ---
 
 - name: "Config | Create directories"
-  become: yes
-  become_user: root
   file:
     path: "{{ item }}"
     state: directory
