@@ -1,5 +1,8 @@
 ---
 
+- name: "Include user tasks"
+  include: tasks-user.yml
+
 - name: "Include detection tasks"
   include: tasks-upsource-detect.yml
 
