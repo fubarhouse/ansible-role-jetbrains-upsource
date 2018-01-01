@@ -9,7 +9,7 @@
         update_cache: yes
         state: latest
       changed_when: false
-      fs ailed_when: false
+      failed_when: false
       when: ansible_os_family == 'RedHat'
 
     - name: Update apt cache.
