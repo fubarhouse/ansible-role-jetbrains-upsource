@@ -32,8 +32,6 @@
   file:
     path: "{{ upsource_install_dir }}"
     state: directory
-    owner: "{{ fubarhouse_user }}"
-    group: "{{ fubarhouse_user }}"
     mode: 0755
     recurse: true
 
