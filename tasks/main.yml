@@ -24,6 +24,3 @@
 
 - name: "Include upsource service tasks"
   include: tasks-upsource-service.yml
-  when:
-    - 'upsource_version not in upsource_installed_version.stdout'
-    - '"Upsource is running" not in upsource_service_status'
