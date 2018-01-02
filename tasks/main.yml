@@ -8,9 +8,7 @@
 
 - name: "Include clean-up tasks"
   include: tasks-upsource-clean.yml
-  when: >
-    ('upsource_fresh_install|bool == true') or
-    ('upsource_version not in upsource_installed_version.stdout')
+  when: 'upsource_fresh_install|bool == true or upsource_version not in upsource_installed_version.stdout'
 
 - name: "Include config tasks"
   include: tasks-config.yml
