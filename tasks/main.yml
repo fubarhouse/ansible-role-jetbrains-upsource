@@ -1,23 +1,23 @@
 ---
 
-- name: "Include setup tasks"
-  include: tasks-initial.yml
-
 - name: "Include detection tasks"
   include: tasks-upsource-detect.yml
 
 - name: "Include clean-up tasks"
   include: tasks-upsource-clean.yml
-  when: '"{{ config_file.stat.exists }}" == "true" and "{{ upsource_version }}" not in "{{ upsource_installed_version.stdout_lines }}"'
+  when: 'upsource_fresh_install|bool == true or upsource_version not in upsource_installed_version.stdout'
 
 - name: "Include config tasks"
   include: tasks-config.yml
-  when: 'upsource_version not in upsource_installed_version.stdout_lines'
+  when:
+    - 'upsource_version not in upsource_installed_version.stdout'
+    - '"Upsource is running" not in upsource_service_status'
 
 - name: "Include upsource distribution tasks"
   include: tasks-upsource-distribution.yml
-  when: 'upsource_version not in upsource_installed_version.stdout_lines'
+  when:
+    - 'upsource_version not in upsource_installed_version.stdout'
+    - '"Upsource is running" not in upsource_service_status'
 
 - name: "Include upsource service tasks"
   include: tasks-upsource-service.yml
-  when: 'upsource_version not in upsource_installed_version.stdout_lines'
