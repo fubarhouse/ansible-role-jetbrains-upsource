@@ -11,7 +11,7 @@
 
 ## Requirements
 
-  * None.
+  * Java 7 (not included)
 
 ## Role Variables
 
