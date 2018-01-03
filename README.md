@@ -37,6 +37,14 @@ upsource_version: 2017.3.2593
   * Add the role to your playbook.
   * Modify above variables as desired.
 
+## Example Playbook
+
+```yaml
+- hosts: localhost
+  roles:
+    - fubarhouse.jetbrains-upsource
+```
+
 ## License
 
 MIT / BSD
