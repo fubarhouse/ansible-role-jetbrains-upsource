@@ -4,7 +4,7 @@
 [![Ansible Galaxy](https://img.shields.io/ansible/role/14001.svg)](https://galaxy.ansible.com/fubarhouse/jetbrains-upsource)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/fubarhouse/ansible-role-upsource/master/LICENSE)
 
-* Installs Jetbrains' UpSource on Ubuntu servers
+* Installs Jetbrains' UpSource on Ubuntu, Debian, CentOS and RedHat!
 
 ## Preview
 ![screenshot](https://raw.githubusercontent.com/fubarhouse/ansible-role-upsource/master/images/login-screen.png)
@@ -15,16 +15,18 @@
 
 ## Role Variables
 
-    # Remove the existing file system before starting
-    upsource_fresh_install: false
-    # Installation directory
-    upsource_install_dir: /opt/upsource
-    # Installation domain
-    upsource_domain: localhost
-    # Installation port
-    upsource_port: 3000
-    # Installation version
-    upsource_version: 2017.3.2593
+```yaml
+# Remove the existing file system before starting
+upsource_fresh_install: false
+# Installation directory
+upsource_install_dir: /opt/upsource
+# Installation domain
+upsource_domain: localhost
+# Installation port
+upsource_port: 3000
+# Installation version
+upsource_version: 2017.3.2593
+```
 
 ## Dependencies
 
