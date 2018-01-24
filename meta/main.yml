@@ -14,6 +14,7 @@ galaxy_info:
         - wheezy
         - jessie
         - stretch
+        - buster
     - name: EL
       versions:
         - 6
@@ -23,23 +24,25 @@ galaxy_info:
         - 24
         - 25
         - 26
+        - 27
     - name: Ubuntu
       versions:
-        - artful
-        - zesty
-        - yakkety
-        - xenial
-        - vivid
-        - wily
-        - utopic
-        - trusty
-        - saucy
-        - raring
-        - quantal
         - precise
+        - quantal
+        - raring
+        - saucy
+        - trusty
+        - utopic
+        - wily
+        - vivid
+        - xenial
+        - yakkety
+        - zesty
+        - artful
+        - bionic
   categories:
-  - database
-  - development
-  - system
-  - web
+    - software
+    - jetbrains
+    - code
+    - review
 dependencies: []
