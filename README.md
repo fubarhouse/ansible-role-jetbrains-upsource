@@ -1,8 +1,9 @@
 # Ansible Role: UpSource
 
-[![Build Status](https://travis-ci.org/fubarhouse/ansible-role-jetbrains-upsource.svg?branch=master)](https://travis-ci.org/fubarhouse/ansible-role-jetbrains-upsource)
-[![Ansible Galaxy](https://img.shields.io/ansible/role/14001.svg)](https://galaxy.ansible.com/fubarhouse/jetbrains-upsource)
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/fubarhouse/ansible-role-upsource/master/LICENSE)
+[![Build Status](https://img.shields.io/travis/fubarhouse/ansible-role-jetbrains-upsource/master.svg?style=for-the-badge)](https://travis-ci.org/fubarhouse/ansible-role-jetbrains-upsource)
+[![stability-stable](https://img.shields.io/badge/stability-stable-green.svg?style=for-the-badge)](https://github.com/orangemug/stability-badges)
+[![Ansible Galaxy](https://img.shields.io/ansible/role/14001.svg?style=for-the-badge)](https://galaxy.ansible.com/fubarhouse/jetbrains-upsource)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](https://raw.githubusercontent.com/fubarhouse/ansible-role-upsource/master/LICENSE)
 
 * Installs Jetbrains' UpSource on Ubuntu, Debian, CentOS and RedHat!
 
